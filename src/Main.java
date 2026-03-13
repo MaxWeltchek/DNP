@@ -100,51 +100,51 @@ public class Main {
     }
 
     public static void renderFrame() {
-    Graphics pen = bs.getDrawGraphics();
-        clearScreen(pen);
+        Graphics pen = bs.getDrawGraphics();
+            clearScreen(pen);
 
-        pen.setColor(Color.WHITE);
-        for (Atom atom : molecule) {
-            for (Points vertex : atom.getVertices()) {
-                Points temp = new Points(vertex);
-                temp.rotateYAxis(rotation[0], new double[]{0,0,0});
-                temp.rotateXAxis(rotation[1], new double[]{0,0,0});
-                temp.rotateZAxis(rotation[2], new double[]{0,0,0});
-                int[] coords = temp.castToXY();
-                pen.setColor(atom.getColor());
-                pen.drawOval(coords[0], coords[1], 1, 1);
+            pen.setColor(Color.WHITE);
+            for (Atom atom : molecule) {
+                for (Points vertex : atom.getVertices()) {
+                    Points temp = new Points(vertex);
+                    temp.rotateYAxis(rotation[0], new double[]{0,0,0});
+                    temp.rotateXAxis(rotation[1], new double[]{0,0,0});
+                    temp.rotateZAxis(rotation[2], new double[]{0,0,0});
+                    int[] coords = temp.castToXY();
+                    pen.setColor(atom.getColor());
+                    pen.drawOval(coords[0], coords[1], 1, 1);
+                }
             }
-        }
 
-        for (Bond bond : bonds) {
-            Points startTemp = new Points(bond.getStart());
-            startTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
-            startTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
-            startTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
-            int[] startCoords = startTemp.castToXY();
-            Points endTemp = new Points(bond.getEnd());
-            endTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
-            endTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
-            endTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
-            int[] endCoords = endTemp.castToXY();
-            pen.setColor(Color.BLACK);
-            pen.drawLine(startCoords[0], startCoords[1], endCoords[0], endCoords[1]);
-            if (bond.isDoubleBond()) {
-                startTemp = new Points(bond.getSecondStart());
+            for (Bond bond : bonds) {
+                Points startTemp = new Points(bond.getStart());
                 startTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
                 startTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
                 startTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
-                startCoords = startTemp.castToXY();
-                endTemp = new Points(bond.getSecondEnd());
+                int[] startCoords = startTemp.castToXY();
+                Points endTemp = new Points(bond.getEnd());
                 endTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
                 endTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
                 endTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
-                endCoords = endTemp.castToXY();
+                int[] endCoords = endTemp.castToXY();
+                pen.setColor(Color.BLACK);
                 pen.drawLine(startCoords[0], startCoords[1], endCoords[0], endCoords[1]);
+                if (bond.isDoubleBond()) {
+                    startTemp = new Points(bond.getSecondStart());
+                    startTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
+                    startTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
+                    startTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
+                    startCoords = startTemp.castToXY();
+                    endTemp = new Points(bond.getSecondEnd());
+                    endTemp.rotateYAxis(rotation[0], new double[]{0,0,0});
+                    endTemp.rotateXAxis(rotation[1], new double[]{0,0,0});
+                    endTemp.rotateZAxis(rotation[2], new double[]{0,0,0});
+                    endCoords = endTemp.castToXY();
+                    pen.drawLine(startCoords[0], startCoords[1], endCoords[0], endCoords[1]);
 
+                }
             }
-        }
-        bs.show();
+            bs.show();
     }
 
     public static void draw(Sphere sphere) {
