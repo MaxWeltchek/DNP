@@ -21,11 +21,6 @@ public class Points {
         double relativeX = coordinates[0] - cameraCoords[0];
         double relativeY = coordinates[1] - cameraCoords[1];
         double relativeZ = coordinates[2] - cameraCoords[2];
-//        if (relativeZ <= 1) {
-//            XYCoordinates[0] = Double.MAX_VALUE;
-//            XYCoordinates[1] = Double.MAX_VALUE;
-//            return XYCoordinates;
-//        }
 
         XYCoordinates[0] = relativeX * (Camera.getFocalLength() / relativeZ);
         XYCoordinates[1] = relativeY * (Camera.getFocalLength() / relativeZ);

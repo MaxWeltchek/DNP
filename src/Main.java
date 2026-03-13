@@ -17,7 +17,7 @@ public class Main {
         JFrame frame = new JFrame("2,4 - Dinitrophenol");
         JLabel label = new JLabel("test");
         canvas.setSize(1000, 1000);
-        canvas.setBackground(new Color(20, 20, 20));
+        canvas.setBackground(new Color(10, 10, 10));
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
@@ -27,7 +27,7 @@ public class Main {
 
         baseState = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
         Graphics baseStatePen = baseState.getGraphics();
-        baseStatePen.setColor(new Color(100, 100, 100));
+        baseStatePen.setColor(new Color(80, 80, 80));
         baseStatePen.fillRect(0,0,1000,1000);
         baseStatePen.dispose();
 
@@ -88,7 +88,7 @@ public class Main {
 
                 //carbons to hydrogen's
                 new Bond(molecule[2], molecule[14], false),
-                new Bond(molecule[4], molecule[15], true),
+                new Bond(molecule[4], molecule[15], false),
                 new Bond(molecule[5], molecule[16], false)
         };
 
