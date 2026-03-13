@@ -30,6 +30,7 @@ public class InputHandling implements MouseListener, MouseMotionListener, KeyLis
     public void mouseDragged(MouseEvent e) {
         Main.rotation[0] += (lastMouse[0] - e.getX())/100.0;
         Main.rotation[1] += (lastMouse[1] - e.getY())/100.0;
+        Main.rotation[1] = Math.max(-Math.PI/2.0,(Math.min(Main.rotation[1], Math.PI/2.0)));
         lastMouse = new int[]{e.getX(), e.getY()};
     }
 
