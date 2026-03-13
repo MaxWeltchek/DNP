@@ -8,6 +8,7 @@ public class Main {
     public static BufferStrategy bs;
     public static BufferedImage baseState;
     public static double[] rotation = new double[3];
+    public static final int resolution = 300;
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("2,4 - Dinitrophenol");
@@ -37,27 +38,27 @@ public class Main {
         Sphere testSphere = new Sphere(new Points(0, 0, 0), 10, 1500);
 
         Atom[] molecule = new Atom[] {
-                new Atom(new Points( 0.000,  2.800, 0.0), 0.4,  300, Color.black),  //carbon 1
-                new Atom(new Points( 2.425,  1.400, 0.0), 0.4,  300, Color.black),  //carbon 2
-                new Atom(new Points( 2.425, -1.400, 0.0), 0.4,  300, Color.black),  //carbon 3
-                new Atom(new Points( 0.000, -2.800, 0.0), 0.4,  300, Color.black),  //carbon 4
-                new Atom(new Points(-2.425, -1.400, 0.0), 0.4,  300, Color.black),  //carbon 5
-                new Atom(new Points(-2.425,  1.400, 0.0), 0.4,  300, Color.black),  //carbon 6
+                new Atom(new Points( 0.000,  2.800, 0.0), 0.4,  resolution, Color.black),  //carbon 1
+                new Atom(new Points( 2.425,  1.400, 0.0), 0.4,  resolution, Color.black),  //carbon 2
+                new Atom(new Points( 2.425, -1.400, 0.0), 0.4,  resolution, Color.black),  //carbon 3
+                new Atom(new Points( 0.000, -2.800, 0.0), 0.4,  resolution, Color.black),  //carbon 4
+                new Atom(new Points(-2.425, -1.400, 0.0), 0.4,  resolution, Color.black),  //carbon 5
+                new Atom(new Points(-2.425,  1.400, 0.0), 0.4,  resolution, Color.black),  //carbon 6
 
-                new Atom(new Points( 0.000,  5.520, 0.0), 0.35, 300, Color.RED),  //oxygen in hydroxyl group
-                new Atom(new Points( 1.920,  7.440, 0.0), 0.2,  150, Color.WHITE),  //hydrogen in hydroxyl group
+                new Atom(new Points( 0.000,  5.520, 0.0), 0.35, resolution, Color.RED),  //oxygen in hydroxyl group
+                new Atom(new Points( 1.920,  7.440, 0.0), 0.2,  resolution/2, Color.WHITE),  //hydrogen in hydroxyl group
 
-                new Atom(new Points( 4.971,  2.870, 0.0), 0.35, 300, Color.blue),  //nitrogen in pos 2 nitro group
-                new Atom(new Points( 4.971,  5.310, 0.0), 0.35, 300, Color.RED),   //oxygen in pos 2 nitro group
-                new Atom(new Points( 7.084,  1.650, 0.0), 0.35, 300, Color.RED),   //oxygen in pos 2 nitro group
+                new Atom(new Points( 4.971,  2.870, 0.0), 0.35, resolution, Color.blue),  //nitrogen in pos 2 nitro group
+                new Atom(new Points( 4.971,  5.310, 0.0), 0.35, resolution, Color.RED),   //oxygen in pos 2 nitro group
+                new Atom(new Points( 7.084,  1.650, 0.0), 0.35, resolution, Color.RED),   //oxygen in pos 2 nitro group
 
-                new Atom(new Points( 0.000, -5.740, 0.0), 0.35, 300, Color.blue),  //nitrogen in pos 4 nitro group
-                new Atom(new Points( 2.113, -6.960, 0.0), 0.35, 300, Color.RED),   //oxygen in pos 4 nitro group
-                new Atom(new Points(-2.113, -6.960, 0.0), 0.35, 300, Color.RED),   //oxygen in pos 4 nitro group
+                new Atom(new Points( 0.000, -5.740, 0.0), 0.35, resolution, Color.blue),  //nitrogen in pos 4 nitro group
+                new Atom(new Points( 2.113, -6.960, 0.0), 0.35, resolution, Color.RED),   //oxygen in pos 4 nitro group
+                new Atom(new Points(-2.113, -6.960, 0.0), 0.35, resolution, Color.RED),   //oxygen in pos 4 nitro group
 
-                new Atom(new Points( 4.295, -2.480, 0.0), 0.2,  150, Color.white),  //hydrogen bonded to carbon 3
-                new Atom(new Points(-4.295, -2.480, 0.0), 0.2,  150, Color.white),  //hydrogen bonded to carbon 5
-                new Atom(new Points(-4.295,  2.480, 0.0), 0.2,  150, Color.white),  //hydrogen bonded to carbon 6
+                new Atom(new Points( 4.295, -2.480, 0.0), 0.2,  resolution/2, Color.white),  //hydrogen bonded to carbon 3
+                new Atom(new Points(-4.295, -2.480, 0.0), 0.2,  resolution/2, Color.white),  //hydrogen bonded to carbon 5
+                new Atom(new Points(-4.295,  2.480, 0.0), 0.2,  resolution/2, Color.white),  //hydrogen bonded to carbon 6
         };
 
         Bond[] bonds = new Bond[] {
