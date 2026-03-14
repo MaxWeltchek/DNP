@@ -48,8 +48,10 @@ public class InputHandling implements MouseListener, MouseMotionListener, KeyLis
     public void keyPressed(KeyEvent e) {
         if (e.getKeyChar() == '-') {
             Camera.moveInOrOut(-1);
+            Main.calculateScale();
         } else if (e.getKeyChar() == '=') {
             Camera.moveInOrOut(1);
+            Main.calculateScale();
         } else if (e.getKeyChar() == 'a') {
             Main.rotation[2] += Math.PI / 8.0;
         } else if (e.getKeyChar() == 'd') {

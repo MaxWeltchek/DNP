@@ -12,10 +12,11 @@ public class Main {
     public static final int resolution = 300;
     public static Atom[] molecule;
     public static Bond[] bonds;
+    public static final int PPI = 254;
+    public static int scale;
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("2,4 - Dinitrophenol");
-        JLabel label = new JLabel("test");
         canvas.setSize(1000, 1000);
         canvas.setBackground(new Color(10, 10, 10));
         frame.add(canvas);
@@ -92,6 +93,7 @@ public class Main {
                 new Bond(molecule[5], molecule[16], false)
         };
 
+        calculateScale();
         ScheduledExecutorService renderer = Executors.newSingleThreadScheduledExecutor();
         ScheduledFuture<?> renderTask = renderer.scheduleAtFixedRate(Main::renderFrame, 0, 17, TimeUnit.MILLISECONDS);
         Thread.sleep(Integer.MAX_VALUE);
@@ -144,6 +146,12 @@ public class Main {
 
                 }
             }
+
+            Font myFont = new Font("Serif", Font.PLAIN, 20);
+            pen.setFont(myFont);
+            String formattedScale = String.format("%,d", scale);
+            pen.drawString("1 : " + formattedScale, 10, 20);
+
             bs.show();
     }
 
@@ -161,6 +169,16 @@ public class Main {
 
     public static void clearScreen(Graphics pen) {
         pen.drawImage(baseState, 0, 0, null);
+    }
+
+    public static void calculateScale() {
+        double realDist = 1.10236 * Math.pow(10, -8);
+        int[] carbon1 = molecule[0].getCenter().castToXY();
+        int[] carbon4 = molecule[3].getCenter().castToXY();
+        double pixelDistance = Math.abs(carbon1[1] - carbon4[1]);
+        double screenDistance = pixelDistance/(double)PPI;
+        scale = (int) (screenDistance/realDist);
+        System.out.println(scale);
     }
 
 }
