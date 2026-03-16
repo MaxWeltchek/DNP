@@ -15,7 +15,7 @@ public class Main {
     public static final int PPI = 254;
     public static int scale;
 
-    static void main() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("2,4 - Dinitrophenol");
         canvas.setSize(1000, 1000);
         canvas.setBackground(new Color(10, 10, 10));
