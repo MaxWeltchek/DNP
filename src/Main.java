@@ -178,7 +178,6 @@ public class Main {
         double pixelDistance = Math.abs(carbon1[1] - carbon4[1]);
         double screenDistance = pixelDistance/(double)PPI;
         scale = (int) (screenDistance/realDist);
-        System.out.println(scale);
     }
 
 }
