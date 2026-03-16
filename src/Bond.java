@@ -1,10 +1,9 @@
 public class Bond {
-    private Points start;
-    private Points end;
+    private final Points start;
+    private final Points end;
     private Points secondStart;
     private Points secondEnd;
-    private boolean doubleBond;
-    private final double doubleBondOffset = 0.2;
+    private final boolean doubleBond;
 
     public Bond(Atom startAtom, Atom endAtom, boolean doubleBond_) {
         doubleBond = doubleBond_;
@@ -16,6 +15,7 @@ public class Bond {
             double thetaTheOtherWay = theta + Math.PI;
             end = new Points(endAtom.getCenter().getCoordinates()[0] + endAtom.getRadius() * Math.cos(thetaTheOtherWay), endAtom.getCenter().getCoordinates()[1] + endAtom.getRadius() * Math.sin(thetaTheOtherWay), endAtom.getCenter().getCoordinates()[2]);
         } else {
+            double doubleBondOffset = 0.2;
             double theta = Math.atan2(dy, dx) + doubleBondOffset;
             start = new Points(startAtom.getCenter().getCoordinates()[0] + startAtom.getRadius() * Math.cos(theta), startAtom.getCenter().getCoordinates()[1] + startAtom.getRadius() * Math.sin(theta), startAtom.getCenter().getCoordinates()[2]);
             double thetaTheOtherWay = theta + Math.PI - (doubleBondOffset * 2);

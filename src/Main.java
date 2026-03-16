@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.concurrent.*;
 
 public class Main {
-    private static Canvas canvas = new Canvas();
+    private static final Canvas canvas = new Canvas();
     public static BufferStrategy bs;
     public static BufferedImage baseState;
     public static double[] rotation = new double[3];
@@ -15,7 +15,7 @@ public class Main {
     public static final int PPI = 254;
     public static int scale;
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main() throws InterruptedException {
         JFrame frame = new JFrame("2,4 - Dinitrophenol");
         canvas.setSize(1000, 1000);
         canvas.setBackground(new Color(10, 10, 10));
@@ -153,18 +153,6 @@ public class Main {
             pen.drawString("1 : " + formattedScale, 10, 20);
 
             bs.show();
-    }
-
-    public static void draw(Sphere sphere) {
-        Graphics pen = bs.getDrawGraphics();
-        pen.setColor(canvas.getBackground());
-        pen.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        pen.setColor(Color.WHITE);
-        for (Points vertex : sphere.getVertices()) {
-            int[] transposed = vertex.castToXY();
-            pen.drawOval(transposed[0], transposed[1], 10, 10);
-        }
-        pen.dispose();
     }
 
     public static void clearScreen(Graphics pen) {

@@ -5,8 +5,8 @@ public class Camera {
 
     //holds only focal length and camera coordinates
     private static final int focalLength = 1700;
-    private static double[] coordinates = new double[] {0, 0, -30};
-    private static double[] rotation = new double[]{0, 0, Math.PI};
+    private static final double[] coordinates = new double[] {0, 0, -30};
+    private static final double[] rotation = new double[]{0, 0, Math.PI};
 
     public Camera() {
     }
@@ -17,28 +17,6 @@ public class Camera {
 
     public static double[] getCoordinates() {
         return coordinates;
-    }
-
-    public static Points getLocation() {
-        return new Points(coordinates[0], coordinates[1], coordinates[2]);
-    }
-
-    public static double getX() { return coordinates[0]; }
-    public static double getY() { return coordinates[1]; }
-    public static double getZ() { return coordinates[2]; }
-
-    public static void setCoordinates(double x_, double y_, double z_) {
-        coordinates = new double[]{x_, y_, z_};
-    }
-
-    public static double[] getRotation() {
-        return rotation;
-    }
-
-    public static void setRotation(double xTheta, double yTheta) {
-        rotation[1] = yTheta;
-        rotation[0] = xTheta;
-        rotation[2] = 0;
     }
 
     public static void moveInOrOut(int inOrOut) {

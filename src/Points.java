@@ -36,13 +36,6 @@ public class Points {
         return tempInt;
     }
 
-    //moves a given point in a given direction by a given distance
-    public void moveZ(double dist) { coordinates[2] += dist; }
-
-    public void moveY(double dist) { coordinates[1] += dist; }
-
-    public void moveX(double dist) { coordinates[0] += dist; }
-
     //rotation methods in each axis, uses standard 3d rotation matrices and multiples them
     public void rotateXAxis(double theta, double[] center) {
         for (int i = 0; i < 3; i++) {
@@ -97,17 +90,4 @@ public class Points {
         }
         return tempCords;
     }
-
-    public void setX(double x_) {
-        coordinates[0] = x_;
-    }
-
-    public void setY(double y_) {
-        coordinates[1] = y_;
-    }
-
-    public void setZ(double z_) {
-        coordinates[2] = z_;
-    }
-
 }

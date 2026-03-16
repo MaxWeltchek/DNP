@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Sphere {
-    private Points center;
-    private List<Points> vertices;
-    private double radius;
+    private final Points center;
+    private final List<Points> vertices;
+    private final double radius;
 
     public Sphere(Points center_, double radius_, int resolution) {
         center = center_;
