@@ -54,6 +54,10 @@ public class InputHandling implements MouseListener, MouseMotionListener, KeyLis
             Main.calculateScale();
         } else if (e.getKeyChar() == 'g') {
             Main.rotation = new double[]{0,0,0};
+            Camera.resetLocation();
+            Main.calculateScale();
+        } else if (e.getKeyChar() == 'r') {
+            Main.rotation[2] += Math.PI/2.0;
         }
     }
 

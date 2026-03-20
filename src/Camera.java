@@ -2,7 +2,8 @@ public class Camera {
 
     //holds only focal length and camera coordinates
     private static final int focalLength = 1700;
-    private static final double[] coordinates = new double[] {0, 0, -30};
+    public static final double[] originalCoordinates = new double[] {0, 0, -30};
+    private static double[] coordinates = new double[] {0, 0, -30};
 
     public Camera() {
     }
@@ -13,6 +14,10 @@ public class Camera {
 
     public static double[] getCoordinates() {
         return coordinates;
+    }
+
+    public static void resetLocation() {
+        coordinates = originalCoordinates.clone();
     }
 
     public static void moveInOrOut(int inOrOut) {
