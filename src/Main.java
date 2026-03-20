@@ -96,7 +96,9 @@ public class Main {
         System.out.print("\033[H\033[2J");
         System.out.println("--------------------------------------");
         System.out.println("Controls:");
+        System.out.println("Click and Drag to rotate");
         System.out.println("\"+\" & \"-\" to zoom in and out");
+        System.out.println("\"r\" to rotate on Z axis");
         System.out.println("\"g\" to reset camera");
         System.out.println("--------------------------------------");
 
